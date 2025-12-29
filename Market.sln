@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketOtomasyon", "MarketOtomasyon.csproj", "{3F1CBB12-E27A-4345-A364-8F58D09D4E64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Satis.cs = Satis.cs
+		Urun.cs = Urun.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{2F96C0D7-4766-442B-8E57-D89DAC07F3B1}"
+	ProjectSection(SolutionItems) = preProject
+		Veritabani.cs = Veritabani.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BL", "BL", "{572C00EB-5867-413A-A08E-D3F3D00D83E3}"
+	ProjectSection(SolutionItems) = preProject
+		KullaniciManager.cs = KullaniciManager.cs
+		UrunManager.cs = UrunManager.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F1CBB12-E27A-4345-A364-8F58D09D4E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1CBB12-E27A-4345-A364-8F58D09D4E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1CBB12-E27A-4345-A364-8F58D09D4E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1CBB12-E27A-4345-A364-8F58D09D4E64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58CED5C2-516B-406E-B4F9-EA22096A7955}
+	EndGlobalSection
+EndGlobal
