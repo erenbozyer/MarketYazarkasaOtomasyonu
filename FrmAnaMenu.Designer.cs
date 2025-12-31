@@ -73,6 +73,7 @@
             btnKullanicilar.Caption = "Personel Yönetimi";
             btnKullanicilar.Id = 4;
             btnKullanicilar.Name = "btnKullanicilar";
+            btnKullanicilar.ItemClick += btnKullanicilar_ItemClick;
             // 
             // btnCikis
             // 
