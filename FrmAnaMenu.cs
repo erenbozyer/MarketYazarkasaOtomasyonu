@@ -1,6 +1,7 @@
-﻿using System;
+﻿using DevExpress.XtraBars;
+using MarketOtomasyon.BL;
+using System;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
 
 namespace MarketOtomasyon
 {
@@ -60,5 +61,19 @@ namespace MarketOtomasyon
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void btnRaporlar_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           
+            // Formun daha önce açılıp açılmadığını kontrol etmek iyi bir pratiktir
+            FrmZRaporu frm = new FrmZRaporu();
+            frm.MdiParent = this; // Eğer MDI kullanıyorsan
+                                  // Varsa bir Panel içine gömmek istiyorsan:
+                                  // frm.TopLevel = false;
+                                  // pnlAnaIcerik.Controls.Add(frm);
+                                  // frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
+
     }
 }

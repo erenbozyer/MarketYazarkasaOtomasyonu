@@ -51,6 +51,7 @@
             btnSatisEkrani.Id = 1;
             btnSatisEkrani.Name = "btnSatisEkrani";
             btnSatisEkrani.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            btnSatisEkrani.ItemClick += btnSatisEkrani_ItemClick;
             // 
             // btnStokYonetimi
             // 
@@ -65,6 +66,7 @@
             btnRaporlar.Caption = "Gün Sonu Raporu";
             btnRaporlar.Id = 3;
             btnRaporlar.Name = "btnRaporlar";
+            btnRaporlar.ItemClick += btnRaporlar_ItemClick;
             // 
             // btnKullanicilar
             // 
