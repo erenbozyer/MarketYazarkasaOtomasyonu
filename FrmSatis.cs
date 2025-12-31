@@ -137,24 +137,38 @@ namespace MarketOtomasyon
         // 5. SATIŞI TAMAMLAMA (Şimdilik sadece ekranı temizler, sonra veritabanına kaydedeceğiz)
         private void btnNakit_Click(object sender, EventArgs e)
         {
-            if (dtSepet.Rows.Count > 0)
-            {
-                XtraMessageBox.Show("Satış Başarıyla Tamamlandı (Nakit)", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                EkranTemizle();
-            }
-            else
-                XtraMessageBox.Show("Sepet Boş!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            SatisiTamamla("Nakit");
         }
 
+        // Kredi Kartı Ödeme Butonu
         private void btnKrediKarti_Click(object sender, EventArgs e)
+        {
+            SatisiTamamla("Kredi Kartı");
+        }
+
+        private void SatisiTamamla(string odemeTipi)
         {
             if (dtSepet.Rows.Count > 0)
             {
-                XtraMessageBox.Show("Satış Başarıyla Tamamlandı (Kredi Kartı)", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                EkranTemizle();
+                // Label'daki "12,50 ₺" metnini decimal'e çeviriyoruz
+                decimal toplam = decimal.Parse(lblToplamTutar.Text.Replace(" ₺", "").Trim());
+
+                // Şimdilik KasiyerID'yi 1 varsayıyoruz (Login sisteminden gelen ID verilmelidir)
+                int kasiyerID = 1;
+
+                bool sonuc = SatisManager.SatisYap(dtSepet, toplam, odemeTipi, kasiyerID);
+
+                if (sonuc)
+                {
+                    XtraMessageBox.Show($"{odemeTipi} Satış Başarılı. Fiş Oluşturuldu.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    EkranTemizle(); //
+                    VeritabanindanUrunleriYukle(); // Stoklar değiştiği için butonları/tooltip'leri tazele
+                }
             }
             else
-                XtraMessageBox.Show("Sepet Boş!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            {
+                XtraMessageBox.Show("Sepette ürün bulunmamaktadır!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         void EkranTemizle()

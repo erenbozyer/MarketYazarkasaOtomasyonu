@@ -19,6 +19,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BL", "BL", "{572C00EB-5867-413A-A08E-D3F3D00D83E3}"
 	ProjectSection(SolutionItems) = preProject
 		KullaniciManager.cs = KullaniciManager.cs
+		SatisManager.cs = SatisManager.cs
 		UrunManager.cs = UrunManager.cs
 	EndProjectSection
 EndProject
