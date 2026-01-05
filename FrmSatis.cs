@@ -58,7 +58,8 @@ namespace MarketOtomasyon
 
                 // Her satır için buton oluştur
                 SimpleButton btn = new SimpleButton();
-                btn.Text = $"{ad}\n{fiyat:C2}"; // Alt alta yaz (C2: Para birimi formatı)
+                // Eğer fiyatı da görmek istersen şu formatı kullanabilirsin:
+                btn.Text = $"{ad}\nNo: {id}\n{fiyat:C2}";
                 btn.Size = new Size(150, 120);
                 btn.Appearance.Font = new Font("Segoe UI", 11, FontStyle.Bold);
                 btn.ToolTip = $"Barkod: {barkod}\nStok: {row["StokMiktari"]}"; // Mouse ile üzerine gelince bilgi ver
