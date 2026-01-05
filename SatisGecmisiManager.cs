@@ -8,6 +8,7 @@ namespace MarketOtomasyon.BL
     public class SatisGecmisiManager
     {
         // Satışları getirirken 'Durum' sütununu da çekiyoruz
+        // Satışları getirirken 'Durum' sütununu da çekiyoruz
         public static DataTable SatislariGetir()
         {
             using (var baglanti = Veritabani.BaglantiGetir())

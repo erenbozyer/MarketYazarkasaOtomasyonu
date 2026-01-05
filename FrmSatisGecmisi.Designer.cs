@@ -1,4 +1,5 @@
-﻿namespace MarketOtomasyon
+﻿
+namespace MarketOtomasyon
 {
     partial class FrmSatisGecmisi
     {
@@ -15,114 +16,145 @@
 
         private void InitializeComponent()
         {   // --- FORM AYARLARI --- STIL
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Name = "FrmSatisGecmisi";
-            this.Text = "Satış Geçmişi";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-
-
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.gridControlSatislar = new DevExpress.XtraGrid.GridControl();
-            this.gridViewSatislar = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControlDetaylar = new DevExpress.XtraGrid.GridControl();
-            this.gridViewDetaylar = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-            this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSatislar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewSatislar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDetaylar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewDetaylar)).BeginInit();
-            this.SuspendLayout();
+            splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            btnIadeEt = new DevExpress.XtraEditors.SimpleButton();
+            gridControlSatislar = new DevExpress.XtraGrid.GridControl();
+            gridViewSatislar = new DevExpress.XtraGrid.Views.Grid.GridView();
+            groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            gridControlDetaylar = new DevExpress.XtraGrid.GridControl();
+            gridViewDetaylar = new DevExpress.XtraGrid.Views.Grid.GridView();
+            ((System.ComponentModel.ISupportInitialize)splitContainerControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).BeginInit();
+            splitContainerControl1.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel2).BeginInit();
+            splitContainerControl1.Panel2.SuspendLayout();
+            splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridControlSatislar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewSatislar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
+            groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridControlDetaylar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewDetaylar).BeginInit();
+            SuspendLayout();
             // 
             // splitContainerControl1
             // 
-            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Horizontal = false; // Yatay bölme (Üst-Alt)
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.gridControlSatislar);
-            this.splitContainerControl1.Panel1.Text = "Satış Listesi";
-            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl1);
-            this.splitContainerControl1.Panel2.Text = "Satış Detayları";
-            this.splitContainerControl1.Size = new System.Drawing.Size(984, 661);
-            this.splitContainerControl1.SplitterPosition = 350; // Üst panel yüksekliği
-            this.splitContainerControl1.TabIndex = 0;
+            splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            splitContainerControl1.Horizontal = false;
+            splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            splitContainerControl1.Margin = new System.Windows.Forms.Padding(4);
+            splitContainerControl1.Name = "splitContainerControl1";
+            // 
+            // splitContainerControl1.Panel1
+            // 
+            splitContainerControl1.Panel1.Controls.Add(btnIadeEt);
+            splitContainerControl1.Panel1.Controls.Add(gridControlSatislar);
+            splitContainerControl1.Panel1.Text = "Satış Listesi";
+            // 
+            // splitContainerControl1.Panel2
+            // 
+            splitContainerControl1.Panel2.Controls.Add(groupControl1);
+            splitContainerControl1.Panel2.Text = "Satış Detayları";
+            splitContainerControl1.Size = new System.Drawing.Size(1148, 814);
+            splitContainerControl1.SplitterPosition = 431;
+            splitContainerControl1.TabIndex = 0;
+            // 
+            // btnIadeEt
+            // 
+            btnIadeEt.Location = new System.Drawing.Point(13, 373);
+            btnIadeEt.Margin = new System.Windows.Forms.Padding(4);
+            btnIadeEt.Name = "btnIadeEt";
+            btnIadeEt.Size = new System.Drawing.Size(175, 49);
+            btnIadeEt.TabIndex = 0;
+            btnIadeEt.Text = "Satışı İade Et";
+            btnIadeEt.Click += btnIadeEt_Click;
             // 
             // gridControlSatislar
             // 
-            this.gridControlSatislar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlSatislar.Location = new System.Drawing.Point(0, 0);
-            this.gridControlSatislar.MainView = this.gridViewSatislar;
-            this.gridControlSatislar.Name = "gridControlSatislar";
-            this.gridControlSatislar.Size = new System.Drawing.Size(984, 350);
-            this.gridControlSatislar.TabIndex = 0;
-            this.gridControlSatislar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewSatislar});
+            gridControlSatislar.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridControlSatislar.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            gridControlSatislar.Location = new System.Drawing.Point(0, 0);
+            gridControlSatislar.MainView = gridViewSatislar;
+            gridControlSatislar.Margin = new System.Windows.Forms.Padding(4);
+            gridControlSatislar.Name = "gridControlSatislar";
+            gridControlSatislar.Size = new System.Drawing.Size(1148, 431);
+            gridControlSatislar.TabIndex = 0;
+            gridControlSatislar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewSatislar });
             // 
             // gridViewSatislar
             // 
-            this.gridViewSatislar.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridViewSatislar.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridViewSatislar.GridControl = this.gridControlSatislar;
-            this.gridViewSatislar.Name = "gridViewSatislar";
-            this.gridViewSatislar.OptionsBehavior.Editable = false; // Düzenleme kapalı
-            this.gridViewSatislar.OptionsView.ShowGroupPanel = false; // Gruplama panelini gizle
-            this.gridViewSatislar.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewSatislar_FocusedRowChanged);
+            gridViewSatislar.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            gridViewSatislar.Appearance.FocusedRow.Options.UseBackColor = true;
+            gridViewSatislar.DetailHeight = 431;
+            gridViewSatislar.GridControl = gridControlSatislar;
+            gridViewSatislar.Name = "gridViewSatislar";
+            gridViewSatislar.OptionsBehavior.Editable = false;
+            gridViewSatislar.OptionsEditForm.PopupEditFormWidth = 933;
+            gridViewSatislar.OptionsView.ShowGroupPanel = false;
+            gridViewSatislar.RowStyle += gridViewSatislar_RowStyle;
+            gridViewSatislar.FocusedRowChanged += gridViewSatislar_FocusedRowChanged;
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.gridControlDetaylar);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(984, 301);
-            this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Seçili Satışın Ürün Detayları";
+            groupControl1.Controls.Add(gridControlDetaylar);
+            groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupControl1.Location = new System.Drawing.Point(0, 0);
+            groupControl1.Margin = new System.Windows.Forms.Padding(4);
+            groupControl1.Name = "groupControl1";
+            groupControl1.Size = new System.Drawing.Size(1148, 371);
+            groupControl1.TabIndex = 0;
+            groupControl1.Text = "Seçili Satışın Ürün Detayları";
             // 
             // gridControlDetaylar
             // 
-            this.gridControlDetaylar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlDetaylar.Location = new System.Drawing.Point(2, 23);
-            this.gridControlDetaylar.MainView = this.gridViewDetaylar;
-            this.gridControlDetaylar.Name = "gridControlDetaylar";
-            this.gridControlDetaylar.Size = new System.Drawing.Size(980, 276);
-            this.gridControlDetaylar.TabIndex = 0;
-            this.gridControlDetaylar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewDetaylar});
+            gridControlDetaylar.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridControlDetaylar.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            gridControlDetaylar.Location = new System.Drawing.Point(2, 28);
+            gridControlDetaylar.MainView = gridViewDetaylar;
+            gridControlDetaylar.Margin = new System.Windows.Forms.Padding(4);
+            gridControlDetaylar.Name = "gridControlDetaylar";
+            gridControlDetaylar.Size = new System.Drawing.Size(1144, 341);
+            gridControlDetaylar.TabIndex = 0;
+            gridControlDetaylar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridViewDetaylar });
+            gridControlDetaylar.Click += gridControlDetaylar_Click;
             // 
             // gridViewDetaylar
             // 
-            this.gridViewDetaylar.GridControl = this.gridControlDetaylar;
-            this.gridViewDetaylar.Name = "gridViewDetaylar";
-            this.gridViewDetaylar.OptionsBehavior.Editable = false;
-            this.gridViewDetaylar.OptionsView.ShowGroupPanel = false;
+            gridViewDetaylar.DetailHeight = 431;
+            gridViewDetaylar.GridControl = gridControlDetaylar;
+            gridViewDetaylar.Name = "gridViewDetaylar";
+            gridViewDetaylar.OptionsBehavior.Editable = false;
+            gridViewDetaylar.OptionsEditForm.PopupEditFormWidth = 933;
+            gridViewDetaylar.OptionsView.ShowGroupPanel = false;
             // 
             // FrmSatisGecmisi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.splitContainerControl1);
-            this.Name = "FrmSatisGecmisi";
-            this.Text = "Satış Geçmişi ve Detaylar";
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-            this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSatislar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewSatislar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlDetaylar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewDetaylar)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1148, 814);
+            Controls.Add(splitContainerControl1);
+            Margin = new System.Windows.Forms.Padding(4);
+            Name = "FrmSatisGecmisi";
+            Text = "Satış Geçmişi ve Detaylar";
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel1).EndInit();
+            splitContainerControl1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerControl1.Panel2).EndInit();
+            splitContainerControl1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerControl1).EndInit();
+            splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gridControlSatislar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewSatislar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
+            groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gridControlDetaylar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridViewDetaylar).EndInit();
+            ResumeLayout(false);
 
         }
-
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.SimpleButton btnIadeEt; // Tanım burada olmalı!
+        
         private DevExpress.XtraGrid.GridControl gridControlSatislar;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewSatislar;
         private DevExpress.XtraEditors.GroupControl groupControl1;
