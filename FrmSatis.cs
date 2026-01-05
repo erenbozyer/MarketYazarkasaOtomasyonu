@@ -65,7 +65,10 @@ namespace MarketOtomasyon
                 btn.ToolTip = $"Barkod: {barkod}\nStok: {row["StokMiktari"]}"; // Mouse ile üzerine gelince bilgi ver
 
                 // Tıklayınca sepete ekle
-                btn.Click += (s, e) => SepeteEkle(id, ad, fiyat, 1);
+                btn.Click += (s, e) => {
+                    txtBarkod.Text = barkod; // Barkod kutusuna numarayı yazar
+                    SepeteEkle(id, ad, fiyat, 1); // Ürünü sepete ekler
+                };
 
                 flowUrunler.Controls.Add(btn);
             }
@@ -171,7 +174,7 @@ namespace MarketOtomasyon
                 XtraMessageBox.Show("Sepette ürün bulunmamaktadır!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+               
         void EkranTemizle()
         {
             dtSepet.Rows.Clear();

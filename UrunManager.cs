@@ -98,6 +98,6 @@ namespace MarketOtomasyon.BL
 
             Veritabani.KomutCalistir(sorgu, p);
         }
-
+        
     }
 }
