@@ -24,7 +24,7 @@ namespace MarketOtomasyon.DAL
         }
 
         // Veritabanı işlemlerini (Ekle/Sil/Güncelle) yönetecek temel metod
-        // Bu metodu bütün formlarda kullanacağız, kod tekrarını önler [Cite: 58]
+        // Bu metodu bütün formlarda kullanacağız, kod tekrarını önler 
         public static bool KomutCalistir(string sqlSorgusu, params MySqlParameter[] parametreler)
         {
             using (MySqlConnection baglan = new MySqlConnection(baglantiCumlesi))

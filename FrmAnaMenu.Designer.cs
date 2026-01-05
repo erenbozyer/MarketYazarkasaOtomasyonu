@@ -24,6 +24,8 @@
             btnKullanicilar = new DevExpress.XtraBars.BarButtonItem();
             btnCikis = new DevExpress.XtraBars.BarButtonItem();
             lblKullaniciBilgi = new DevExpress.XtraBars.BarStaticItem();
+            barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
+            btnSatisGecmisi = new DevExpress.XtraBars.BarButtonItem();
             pageSatis = new DevExpress.XtraBars.Ribbon.RibbonPage();
             groupSatis = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             pageYonetim = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -37,9 +39,9 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, btnSatisEkrani, btnStokYonetimi, btnRaporlar, btnKullanicilar, btnCikis, lblKullaniciBilgi });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, btnSatisEkrani, btnStokYonetimi, btnRaporlar, btnKullanicilar, btnCikis, lblKullaniciBilgi, barButtonGroup1, btnSatisGecmisi });
             ribbon.Location = new System.Drawing.Point(0, 0);
-            ribbon.MaxItemId = 7;
+            ribbon.MaxItemId = 17;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { pageSatis, pageYonetim });
             ribbon.Size = new System.Drawing.Size(1024, 193);
@@ -50,7 +52,6 @@
             btnSatisEkrani.Caption = "Hızlı Satış Ekranı";
             btnSatisEkrani.Id = 1;
             btnSatisEkrani.Name = "btnSatisEkrani";
-            btnSatisEkrani.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             btnSatisEkrani.ItemClick += btnSatisEkrani_ItemClick;
             // 
             // btnStokYonetimi
@@ -58,7 +59,6 @@
             btnStokYonetimi.Caption = "Stok Listesi";
             btnStokYonetimi.Id = 2;
             btnStokYonetimi.Name = "btnStokYonetimi";
-            btnStokYonetimi.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             btnStokYonetimi.ItemClick += btnStokYonetimi_ItemClick;
             // 
             // btnRaporlar
@@ -88,6 +88,20 @@
             lblKullaniciBilgi.Id = 6;
             lblKullaniciBilgi.Name = "lblKullaniciBilgi";
             // 
+            // barButtonGroup1
+            // 
+            barButtonGroup1.Caption = "barButtonGroup1";
+            barButtonGroup1.Id = 11;
+            barButtonGroup1.ItemLinks.Add(btnSatisEkrani);
+            barButtonGroup1.Name = "barButtonGroup1";
+            // 
+            // btnSatisGecmisi
+            // 
+            btnSatisGecmisi.Caption = "Satış Geçmişi";
+            btnSatisGecmisi.Id = 13;
+            btnSatisGecmisi.Name = "btnSatisGecmisi";
+            btnSatisGecmisi.ItemClick += btnSatisGecmisi_ItemClick;
+            // 
             // pageSatis
             // 
             pageSatis.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { groupSatis });
@@ -96,8 +110,9 @@
             // 
             // groupSatis
             // 
-            groupSatis.ItemLinks.Add(btnSatisEkrani);
-            groupSatis.ItemLinks.Add(btnCikis);
+            groupSatis.ItemLinks.Add(barButtonGroup1, true);
+            groupSatis.ItemLinks.Add(btnSatisGecmisi, true);
+            groupSatis.ItemLinks.Add(btnCikis, true);
             groupSatis.Name = "groupSatis";
             groupSatis.Text = "Satış";
             // 
@@ -167,5 +182,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup groupStok;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup groupRapor;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup groupAyarlar;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
+        private DevExpress.XtraBars.BarButtonItem btnSatisGecmisi;
     }
 }
