@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BL", "BL", "{572C00EB-5867-
 		DurumManager.cs = DurumManager.cs
 		GlobalVariables.cs = GlobalVariables.cs
 		KullaniciManager.cs = KullaniciManager.cs
+		MusteriManager.cs = MusteriManager.cs
 		PersonelManager.cs = PersonelManager.cs
 		RaporManager.cs = RaporManager.cs
 		SatisGecmisiManager.cs = SatisGecmisiManager.cs

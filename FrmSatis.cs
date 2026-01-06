@@ -217,7 +217,23 @@ namespace MarketOtomasyon
                 XtraMessageBox.Show("Sepette ürün bulunmamaktadır!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-               
+        private async void txtMusteriID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txtMusteriID.Text))
+            {
+                lblAIOnery.Text = "AI Önerileri Hazırlanıyor...";
+                try
+                {
+                    string oneri = await MusteriManager.GeminiOnerisiAl(txtMusteriID.Text);
+                    lblAIOnery.Text = "AI Önerisi: " + oneri;
+                }
+                catch (Exception ex)
+                {
+                    //lblAIOnery.Text = "Öneri alınamadı.";
+                    lblAIOnery.Text = Convert.ToString(ex);
+                }
+            }
+        }
         void EkranTemizle()
         {
             txtAlinanPara.Text = "0,00"; // Yeni eklenen alan

@@ -20,8 +20,10 @@
             splitAna = new DevExpress.XtraEditors.SplitContainerControl();
             flowUrunler = new System.Windows.Forms.FlowLayoutPanel();
             pnlUstBarkod = new DevExpress.XtraEditors.PanelControl();
+            txtMusteriID = new DevExpress.XtraEditors.TextEdit();
             txtBarkod = new DevExpress.XtraEditors.TextEdit();
             lblBarkod = new DevExpress.XtraEditors.LabelControl();
+            lblAIOnery = new DevExpress.XtraEditors.LabelControl();
             gridSepet = new DevExpress.XtraGrid.GridControl();
             gridViewSepet = new DevExpress.XtraGrid.Views.Grid.GridView();
             colUrunAdi = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,6 +47,7 @@
             splitAna.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlUstBarkod).BeginInit();
             pnlUstBarkod.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtMusteriID.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtBarkod.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridSepet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewSepet).BeginInit();
@@ -67,6 +70,7 @@
             // 
             // splitAna.Panel2
             // 
+            splitAna.Panel2.Controls.Add(lblAIOnery);
             splitAna.Panel2.Controls.Add(gridSepet);
             splitAna.Panel2.Controls.Add(pnlAltOdeme);
             splitAna.Panel2.Text = "Panel2";
@@ -79,21 +83,30 @@
             flowUrunler.AutoScroll = true;
             flowUrunler.BackColor = System.Drawing.Color.WhiteSmoke;
             flowUrunler.Dock = System.Windows.Forms.DockStyle.Fill;
-            flowUrunler.Location = new System.Drawing.Point(0, 60);
+            flowUrunler.Location = new System.Drawing.Point(0, 98);
             flowUrunler.Name = "flowUrunler";
             flowUrunler.Padding = new System.Windows.Forms.Padding(10);
-            flowUrunler.Size = new System.Drawing.Size(750, 640);
+            flowUrunler.Size = new System.Drawing.Size(750, 602);
             flowUrunler.TabIndex = 1;
             // 
             // pnlUstBarkod
             // 
+            pnlUstBarkod.Controls.Add(txtMusteriID);
             pnlUstBarkod.Controls.Add(txtBarkod);
             pnlUstBarkod.Controls.Add(lblBarkod);
             pnlUstBarkod.Dock = System.Windows.Forms.DockStyle.Top;
             pnlUstBarkod.Location = new System.Drawing.Point(0, 0);
             pnlUstBarkod.Name = "pnlUstBarkod";
-            pnlUstBarkod.Size = new System.Drawing.Size(750, 60);
+            pnlUstBarkod.Size = new System.Drawing.Size(750, 98);
             pnlUstBarkod.TabIndex = 0;
+            // 
+            // txtMusteriID
+            // 
+            txtMusteriID.Location = new System.Drawing.Point(130, 70);
+            txtMusteriID.Name = "txtMusteriID";
+            txtMusteriID.Size = new System.Drawing.Size(400, 22);
+            txtMusteriID.TabIndex = 2;
+            txtMusteriID.KeyDown += txtMusteriID_KeyDown;
             // 
             // txtBarkod
             // 
@@ -113,6 +126,14 @@
             lblBarkod.Size = new System.Drawing.Size(88, 28);
             lblBarkod.TabIndex = 0;
             lblBarkod.Text = "BARKOD:";
+            // 
+            // lblAIOnery
+            // 
+            lblAIOnery.Location = new System.Drawing.Point(60, 160);
+            lblAIOnery.Name = "lblAIOnery";
+            lblAIOnery.Size = new System.Drawing.Size(75, 16);
+            lblAIOnery.TabIndex = 2;
+            lblAIOnery.Text = "labelControl1";
             // 
             // gridSepet
             // 
@@ -298,11 +319,13 @@
             splitAna.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitAna.Panel2).EndInit();
             splitAna.Panel2.ResumeLayout(false);
+            splitAna.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitAna).EndInit();
             splitAna.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlUstBarkod).EndInit();
             pnlUstBarkod.ResumeLayout(false);
             pnlUstBarkod.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtMusteriID.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtBarkod.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridSepet).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewSepet).EndInit();
@@ -324,6 +347,7 @@
         private DevExpress.XtraEditors.LabelControl lblParaUstuBaslik;
         private DevExpress.XtraEditors.LabelControl lblParaUstuTutar;
 
+        
 
 
         private DevExpress.XtraEditors.SplitContainerControl splitAna;
@@ -342,5 +366,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAdet;
         private DevExpress.XtraGrid.Columns.GridColumn colFiyat;
         private DevExpress.XtraGrid.Columns.GridColumn colTutar;
+        private DevExpress.XtraEditors.TextEdit txtMusteriID;
+        private DevExpress.XtraEditors.LabelControl lblAIOnery;
     }
 }
