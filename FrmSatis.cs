@@ -22,6 +22,48 @@ namespace MarketOtomasyon
 
             // Barkod Kutusuna Enter özelliği ekle
             txtBarkod.KeyDown += TxtBarkod_KeyDown;
+
+            // Alınan para değiştiğinde hesaplama yap
+            txtAlinanPara.EditValueChanged += TxtAlinanPara_EditValueChanged;
+
+        }
+
+        private void TxtAlinanPara_EditValueChanged(object sender, EventArgs e)
+        {
+            ParaUstuHesapla();
+        }
+        void ParaUstuHesapla()
+        {
+            try
+            {
+                // Toplam tutarı labeldan al (₺ simgesini temizle)
+                decimal toplam = decimal.Parse(lblToplamTutar.Text.Replace(" ₺", "").Trim());
+
+                // Alınan parayı al
+                decimal alinan = 0;
+                if (!string.IsNullOrEmpty(txtAlinanPara.Text))
+                {
+                    alinan = decimal.Parse(txtAlinanPara.Text);
+                }
+
+                // Hesapla
+                decimal fark = alinan - toplam;
+
+                if (fark >= 0)
+                {
+                    lblParaUstuTutar.Text = $"{fark:N2} ₺";
+                    lblParaUstuTutar.Appearance.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblParaUstuTutar.Text = "Eksik Para";
+                    lblParaUstuTutar.Appearance.ForeColor = Color.Red;
+                }
+            }
+            catch
+            {
+                lblParaUstuTutar.Text = "0,00 ₺";
+            }
         }
 
         // 1. SEPET TABLOSU (ID'yi de tutuyoruz artık)
@@ -136,6 +178,7 @@ namespace MarketOtomasyon
                 toplam += Convert.ToDecimal(row["Toplam"]);
             }
             lblToplamTutar.Text = $"{toplam:N2} ₺";
+            ParaUstuHesapla();
         }
 
         // 5. SATIŞI TAMAMLAMA (Şimdilik sadece ekranı temizler, sonra veritabanına kaydedeceğiz)
@@ -177,6 +220,8 @@ namespace MarketOtomasyon
                
         void EkranTemizle()
         {
+            txtAlinanPara.Text = "0,00"; // Yeni eklenen alan
+            lblParaUstuTutar.Text = "0,00 ₺"; // Yeni eklenen alan
             dtSepet.Rows.Clear();
             lblToplamTutar.Text = "0,00 ₺";
             txtBarkod.Focus();

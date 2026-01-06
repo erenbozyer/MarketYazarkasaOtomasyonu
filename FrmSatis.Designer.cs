@@ -33,6 +33,10 @@
             btnNakit = new DevExpress.XtraEditors.SimpleButton();
             lblToplamTutar = new DevExpress.XtraEditors.LabelControl();
             lblToplamBaslik = new DevExpress.XtraEditors.LabelControl();
+            lblAlinanParaBaslik = new DevExpress.XtraEditors.LabelControl();
+            txtAlinanPara = new DevExpress.XtraEditors.TextEdit();
+            lblParaUstuBaslik = new DevExpress.XtraEditors.LabelControl();
+            lblParaUstuTutar = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)splitAna).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitAna.Panel1).BeginInit();
             splitAna.Panel1.SuspendLayout();
@@ -46,6 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)gridViewSepet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlAltOdeme).BeginInit();
             pnlAltOdeme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtAlinanPara.Properties).BeginInit();
             SuspendLayout();
             // 
             // splitAna
@@ -173,6 +178,10 @@
             pnlAltOdeme.Controls.Add(btnNakit);
             pnlAltOdeme.Controls.Add(lblToplamTutar);
             pnlAltOdeme.Controls.Add(lblToplamBaslik);
+            pnlAltOdeme.Controls.Add(lblAlinanParaBaslik);
+            pnlAltOdeme.Controls.Add(txtAlinanPara);
+            pnlAltOdeme.Controls.Add(lblParaUstuBaslik);
+            pnlAltOdeme.Controls.Add(lblParaUstuTutar);
             pnlAltOdeme.Dock = System.Windows.Forms.DockStyle.Bottom;
             pnlAltOdeme.Location = new System.Drawing.Point(0, 500);
             pnlAltOdeme.Name = "pnlAltOdeme";
@@ -234,6 +243,48 @@
             lblToplamBaslik.TabIndex = 0;
             lblToplamBaslik.Text = "TOPLAM TUTAR";
             // 
+            // lblAlinanParaBaslik
+            // 
+            lblAlinanParaBaslik.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            lblAlinanParaBaslik.Appearance.Options.UseFont = true;
+            lblAlinanParaBaslik.Location = new System.Drawing.Point(450, 10);
+            lblAlinanParaBaslik.Name = "lblAlinanParaBaslik";
+            lblAlinanParaBaslik.Size = new System.Drawing.Size(124, 28);
+            lblAlinanParaBaslik.TabIndex = 4;
+            lblAlinanParaBaslik.Text = "ALINAN PARA";
+            // 
+            // txtAlinanPara
+            // 
+            txtAlinanPara.EditValue = "0,00";
+            txtAlinanPara.Location = new System.Drawing.Point(450, 40);
+            txtAlinanPara.Name = "txtAlinanPara";
+            txtAlinanPara.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            txtAlinanPara.Properties.Appearance.Options.UseFont = true;
+            txtAlinanPara.Size = new System.Drawing.Size(200, 44);
+            txtAlinanPara.TabIndex = 5;
+            // 
+            // lblParaUstuBaslik
+            // 
+            lblParaUstuBaslik.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            lblParaUstuBaslik.Appearance.Options.UseFont = true;
+            lblParaUstuBaslik.Location = new System.Drawing.Point(680, 10);
+            lblParaUstuBaslik.Name = "lblParaUstuBaslik";
+            lblParaUstuBaslik.Size = new System.Drawing.Size(103, 28);
+            lblParaUstuBaslik.TabIndex = 6;
+            lblParaUstuBaslik.Text = "PARA ÜSTÜ";
+            // 
+            // lblParaUstuTutar
+            // 
+            lblParaUstuTutar.Appearance.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
+            lblParaUstuTutar.Appearance.ForeColor = System.Drawing.Color.Green;
+            lblParaUstuTutar.Appearance.Options.UseFont = true;
+            lblParaUstuTutar.Appearance.Options.UseForeColor = true;
+            lblParaUstuTutar.Location = new System.Drawing.Point(680, 40);
+            lblParaUstuTutar.Name = "lblParaUstuTutar";
+            lblParaUstuTutar.Size = new System.Drawing.Size(114, 54);
+            lblParaUstuTutar.TabIndex = 7;
+            lblParaUstuTutar.Text = "0,00 ₺";
+            // 
             // FrmSatis
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -258,11 +309,22 @@
             ((System.ComponentModel.ISupportInitialize)pnlAltOdeme).EndInit();
             pnlAltOdeme.ResumeLayout(false);
             pnlAltOdeme.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtAlinanPara.Properties).EndInit();
             ResumeLayout(false);
+
+
+
+
 
         }
 
         #endregion
+        private DevExpress.XtraEditors.LabelControl lblAlinanParaBaslik;
+        private DevExpress.XtraEditors.TextEdit txtAlinanPara;
+        private DevExpress.XtraEditors.LabelControl lblParaUstuBaslik;
+        private DevExpress.XtraEditors.LabelControl lblParaUstuTutar;
+
+
 
         private DevExpress.XtraEditors.SplitContainerControl splitAna;
         private System.Windows.Forms.FlowLayoutPanel flowUrunler;
