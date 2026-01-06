@@ -38,6 +38,36 @@ namespace MarketOtomasyon.BL
             return urunler;
         }
 
+        public static string MusteriDetayliGecmisiGetir(string musteriKodu)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (var baglanti = Veritabani.BaglantiGetir())
+            {
+                string sorgu = @"SELECT s.IslemTarihi, u.UrunAdi, sd.Adet 
+                         FROM TBL_SATIS_DETAY sd 
+                         JOIN TBL_SATISLAR s ON sd.SatisID = s.SatisID 
+                         JOIN TBL_MUSTERILER m ON s.MusteriID = m.MusteriID
+                         JOIN TBL_URUNLER u ON sd.UrunID = u.UrunID
+                         WHERE m.MusteriKodu = @p1
+                         ORDER BY s.IslemTarihi DESC LIMIT 50"; // Son 50 işlem yeterli
+
+                using (var komut = new MySqlCommand(sorgu, baglanti))
+                {
+                    komut.Parameters.AddWithValue("@p1", musteriKodu);
+                    using (var dr = komut.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            DateTime tarih = Convert.ToDateTime(dr["IslemTarihi"]);
+                            sb.AppendLine($"- {tarih:dd.MM.yyyy}: {dr["UrunAdi"]} ({dr["Adet"]} adet)");
+                        }
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+
+
         public static async Task<string> GeminiOnerisiAl(string musteriKodu)
         {
             string gecmis = MusteriGecmisiGetir(musteriKodu);
@@ -52,9 +82,40 @@ namespace MarketOtomasyon.BL
             string prompt = $@"Sen bir market satış asistanısın. 
             Müşterinin geçmişte aldığı ürünler: {gecmis}. 
             Marketimizdeki mevcut ürün listesi: {stoktakiUrunler}. 
-            Bu müşteriye geçmiş tercihlerine bakarak mevcut ürünlerimizden 3 tane mantıklı ürün öner.
+            Bu müşteriye geçmiş tercihlerine bakarak mevcut ürünlerimizden 5 tane mantıklı ürün öner.
             ÖNEMLİ: Sadece mevcut ürün listesindeki ürünleri öner, dışına çıkma.
             Yanıtı sadece ürün isimleri ve kısa birer cümlelik 'neden' açıklamasıyla ver.";
+
+            return await GeminiApiSorgula(prompt);
+        }
+
+       
+
+        public static async Task<string> GeminiDetayliOnerisiAl(string musteriKodu)
+        {
+            string detayliGecmis = MusteriDetayliGecmisiGetir(musteriKodu);
+            if (string.IsNullOrEmpty(detayliGecmis)) return "Yeni müşteri, henüz alışveriş geçmişi yok.";
+
+            // Mevcut stok listesini al (AI'nın dışarıdan ürün uydurmaması için)
+            DataTable dtUrunler = UrunManager.UrunleriGetir();
+            string mevcutUrunler = "";
+            foreach (DataRow r in dtUrunler.Rows) mevcutUrunler += r["UrunAdi"] + ", ";
+
+            // GELİŞMİŞ PROMPT ŞABLONU
+            string prompt = $@"
+    Aşağıda bir müşterinin geçmiş alışveriş günlüğü ve marketimizdeki mevcut ürün listesi bulunmaktadır.
+    
+    MÜŞTERİ GEÇMİŞİ:
+    {detayliGecmis}
+
+    MARKETİMİZDEKİ MEVCUT ÜRÜNLER:
+    {mevcutUrunler}
+
+    GÖREV:
+    1. Müşterinin alışveriş sıklığını ve tercihlerini analiz et. (Örn: Her hafta süt alıyor mu? Hep aynı markayı mı tercih ediyor?)
+    2. Mevcut ürün listemizden bu müşteriye en uygun 3 ürünü öner.
+    3. Önerdiğin ürünler MUTLAKA 'MARKETİMİZDEKİ MEVCUT ÜRÜNLER' listesinde olmalıdır. Liste dışı ürün önerme.
+    4. Yanıtı kısa ve öz, kasiyerin müşteriye söyleyebileceği bir dille ver.";
 
             return await GeminiApiSorgula(prompt);
         }

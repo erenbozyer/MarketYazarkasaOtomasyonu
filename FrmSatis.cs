@@ -224,7 +224,8 @@ namespace MarketOtomasyon
                 lblAIOnery.Text = "AI Önerileri Hazırlanıyor...";
                 try
                 {
-                    string oneri = await MusteriManager.GeminiOnerisiAl(txtMusteriID.Text);
+                    //string oneri = await MusteriManager.GeminiOnerisiAl(txtMusteriID.Text);
+                    string oneri = await MusteriManager.GeminiDetayliOnerisiAl(txtMusteriID.Text);
                     lblAIOnery.Text = "AI Önerisi: " + oneri;
                 }
                 catch (Exception ex)
