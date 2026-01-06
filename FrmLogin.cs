@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using MarketOtomasyon.BL; // BL Katmanı
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace MarketOtomasyon
 {
@@ -25,11 +26,13 @@ namespace MarketOtomasyon
             try
             {
                 // BL katmanındaki KullaniciManager'ı çağır
-                var kullanici = KullaniciManager.GirisYap(txtKullaniciAdi.Text, txtSifre.Text);
+                DataRow kullanici = KullaniciManager.GirisYap(txtKullaniciAdi.Text, txtSifre.Text);
 
                 if (kullanici != null)
                 {
-                    
+                    GlobalVariables.KasiyerID = Convert.ToInt32(kullanici["KullaniciID"]);
+                    GlobalVariables.KullaniciAdi = kullanici["KullaniciAdi"].ToString();
+                    GlobalVariables.Rol = kullanici["Rol"].ToString();
                     // Buradan sonra Ana Menüyü açacağız
                     // Veritabanından bilgileri al
                     string adSoyad = kullanici["AdSoyad"].ToString();

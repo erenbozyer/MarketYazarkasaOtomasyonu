@@ -98,5 +98,17 @@ namespace MarketOtomasyon
                                   // frm.Dock = DockStyle.Fill;
             frm.Show();
         }
+
+        private void btnDurumKontrol_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // Formun daha önce açılıp açılmadığını kontrol etmek iyi bir pratiktir
+            FrmDurumKontrol frm = new FrmDurumKontrol();
+            frm.MdiParent = this; // Eğer MDI kullanıyorsan
+                                  // Varsa bir Panel içine gömmek istiyorsan:
+                                  // frm.TopLevel = false;
+                                  // pnlAnaIcerik.Controls.Add(frm);
+                                  // frm.Dock = DockStyle.Fill;
+            frm.Show();
+        }
     }
 }

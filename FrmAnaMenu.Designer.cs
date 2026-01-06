@@ -26,6 +26,7 @@
             lblKullaniciBilgi = new DevExpress.XtraBars.BarStaticItem();
             barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
             btnSatisGecmisi = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             pageSatis = new DevExpress.XtraBars.Ribbon.RibbonPage();
             groupSatis = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             pageYonetim = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -33,15 +34,17 @@
             groupRapor = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             groupAyarlar = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            groupDurum = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            btnDurumKontrol = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             SuspendLayout();
             // 
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, btnSatisEkrani, btnStokYonetimi, btnRaporlar, btnKullanicilar, btnCikis, lblKullaniciBilgi, barButtonGroup1, btnSatisGecmisi });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, btnSatisEkrani, btnStokYonetimi, btnRaporlar, btnKullanicilar, btnCikis, lblKullaniciBilgi, barButtonGroup1, btnSatisGecmisi, barButtonItem1, btnDurumKontrol });
             ribbon.Location = new System.Drawing.Point(0, 0);
-            ribbon.MaxItemId = 17;
+            ribbon.MaxItemId = 20;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { pageSatis, pageYonetim });
             ribbon.Size = new System.Drawing.Size(1024, 193);
@@ -66,6 +69,7 @@
             btnRaporlar.Caption = "Gün Sonu Raporu";
             btnRaporlar.Id = 3;
             btnRaporlar.Name = "btnRaporlar";
+            btnRaporlar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             btnRaporlar.ItemClick += btnRaporlar_ItemClick;
             // 
             // btnKullanicilar
@@ -102,6 +106,13 @@
             btnSatisGecmisi.Name = "btnSatisGecmisi";
             btnSatisGecmisi.ItemClick += btnSatisGecmisi_ItemClick;
             // 
+            // barButtonItem1
+            // 
+            barButtonItem1.Caption = "barButtonItem1";
+            barButtonItem1.Id = 17;
+            barButtonItem1.Name = "barButtonItem1";
+            barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
             // pageSatis
             // 
             pageSatis.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { groupSatis });
@@ -118,7 +129,7 @@
             // 
             // pageYonetim
             // 
-            pageYonetim.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { groupStok, groupRapor, groupAyarlar });
+            pageYonetim.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { groupStok, groupRapor, groupAyarlar, groupDurum });
             pageYonetim.Name = "pageYonetim";
             pageYonetim.Text = "YÖNETİCİ PANELİ";
             // 
@@ -147,6 +158,19 @@
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
             ribbonStatusBar.Size = new System.Drawing.Size(1024, 30);
+            // 
+            // groupDurum
+            // 
+            groupDurum.ItemLinks.Add(btnDurumKontrol);
+            groupDurum.Name = "groupDurum";
+            groupDurum.Text = "Durum";
+            // 
+            // btnDurumKontrol
+            // 
+            btnDurumKontrol.Caption = "Mağza Durumunu İncele\r\n";
+            btnDurumKontrol.Id = 19;
+            btnDurumKontrol.Name = "btnDurumKontrol";
+            btnDurumKontrol.ItemClick += btnDurumKontrol_ItemClick;
             // 
             // FrmAnaMenu
             // 
@@ -184,5 +208,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup groupAyarlar;
         private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
         private DevExpress.XtraBars.BarButtonItem btnSatisGecmisi;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnDurumKontrol;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup groupDurum;
     }
 }
