@@ -15,6 +15,14 @@
 
         private void InitializeComponent()
         {
+            // --- FORM AYARLARI --- STIL
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1000, 600);
+
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+
+
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
