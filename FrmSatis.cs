@@ -10,6 +10,7 @@ namespace MarketOtomasyon
     public partial class FrmSatis : DevExpress.XtraEditors.XtraForm
     {
         DataTable dtSepet = new DataTable();
+        
 
         public FrmSatis()
         {
@@ -197,13 +198,19 @@ namespace MarketOtomasyon
         {
             if (dtSepet.Rows.Count > 0)
             {
+                // TextBox'taki değeri int'e çeviriyoruz, boşsa null bırakıyoruz
+                int? musteriID = null;
+                if (!string.IsNullOrEmpty(txtMusteriID.Text))
+                {
+                    musteriID = Convert.ToInt32(txtMusteriID.Text);
+                }
                 // Label'daki "12,50 ₺" metnini decimal'e çeviriyoruz
                 decimal toplam = decimal.Parse(lblToplamTutar.Text.Replace(" ₺", "").Trim());
 
                 // Şimdilik KasiyerID'yi 1 varsayıyoruz (Login sisteminden gelen ID verilmelidir)
                 int kasiyerID = 1;
 
-                bool sonuc = SatisManager.SatisYap(dtSepet, toplam, odemeTipi, kasiyerID);
+                bool sonuc = SatisManager.SatisYap(dtSepet, toplam, odemeTipi, kasiyerID, musteriID);
 
                 if (sonuc)
                 {
@@ -217,21 +224,26 @@ namespace MarketOtomasyon
                 XtraMessageBox.Show("Sepette ürün bulunmamaktadır!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        int? seciliMusteriID = null; // Seçili müşteriyi burada tutacağız
         private async void txtMusteriID_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txtMusteriID.Text))
             {
                 lblAIOnery.Text = "AI Önerileri Hazırlanıyor...";
+               
                 try
                 {
                     //string oneri = await MusteriManager.GeminiOnerisiAl(txtMusteriID.Text);
                     string oneri = await MusteriManager.GeminiDetayliOnerisiAl(txtMusteriID.Text);
                     lblAIOnery.Text = "AI Önerisi: " + oneri;
+                   
                 }
                 catch (Exception ex)
                 {
                     //lblAIOnery.Text = "Öneri alınamadı.";
                     lblAIOnery.Text = Convert.ToString(ex);
+                    
                 }
             }
         }

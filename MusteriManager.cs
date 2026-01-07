@@ -12,7 +12,8 @@ namespace MarketOtomasyon.BL
 {
     public class MusteriManager
     {
-        private const string API_KEY = "AIzaSyBT1qEgKorXOMG_-pr5yD2hW5_B6hIBrfM";
+        //private const string API_KEY = "AIzaSyBT1qEgKorXOMG_-pr5yD2hW5_B6hIBrfM";
+        private const string API_KEY = "AIzaSyB1oX_WL2YzDXMu0Ypy2ra6NqWnLHEXBjs";
 
         // Müşterinin tüm geçmiş ürünlerini getirir
         public static string MusteriGecmisiGetir(string musteriKodu)
@@ -133,6 +134,7 @@ namespace MarketOtomasyon.BL
 
                 dynamic data = JsonConvert.DeserializeObject(resultJson);
                 return data.candidates[0].content.parts[0].text;
+               
             }
         }
     }

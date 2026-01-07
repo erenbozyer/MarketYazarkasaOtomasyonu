@@ -11,12 +11,12 @@ namespace MarketOtomasyon.BL
     public class SatisManager
     {
        
-        public static bool SatisYap(DataTable sepet, decimal toplamTutar, string odemeTipi, int kasiyerID)
+        public static bool SatisYap(DataTable sepet, decimal toplamTutar, string odemeTipi, int kasiyerID, int? musteriID)
         {
             try
             {
                 // 1. Ana Satış Kaydını Oluştur (TBL_SATISLAR)
-                int satisID = SatisLogla(toplamTutar, odemeTipi, kasiyerID);
+                int satisID = SatisLogla(toplamTutar, odemeTipi, kasiyerID, musteriID);
 
                 if (satisID > 0)
                 {
@@ -66,17 +66,18 @@ namespace MarketOtomasyon.BL
 
 
 
-        private static int SatisLogla(decimal toplam, string tip, int kasiyerID)
+        private static int SatisLogla(decimal toplam, string tip, int kasiyerID, int? musteriID)
         {
             // Veritabanına satış kaydı atar ve oluşturulan ID'yi döner
-            string sorgu = "INSERT INTO TBL_SATISLAR (IslemTarihi, ToplamTutar, OdemeTipi, KasiyerID) " +
-                           "VALUES (@p1, @p2, @p3, @p4); SELECT LAST_INSERT_ID();";
+            string sorgu = "INSERT INTO TBL_SATISLAR (IslemTarihi, ToplamTutar, OdemeTipi, KasiyerID, MusteriID) " +
+                           "VALUES (@p1, @p2, @p3, @p4, @p5); SELECT LAST_INSERT_ID();";
 
             MySqlParameter[] p = {
                 new MySqlParameter("@p1", DateTime.Now),
                 new MySqlParameter("@p2", toplam),
                 new MySqlParameter("@p3", tip),
-                new MySqlParameter("@p4", kasiyerID)
+                new MySqlParameter("@p4", kasiyerID),
+                new MySqlParameter("@p5", (object)musteriID ?? DBNull.Value)
             };
 
             using (var baglanti = Veritabani.BaglantiGetir())
